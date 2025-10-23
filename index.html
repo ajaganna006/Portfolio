@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajaganna | Data Science Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for highlights -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #171e49;
+      --accent: #27bfcf;
+      --light: #ebeffa;
+      --shadow: rgba(23,30,73,0.15);
+      --card-radius: 24px;
+      --font: 'Roboto', Arial, sans-serif;
+      --highlight-font: 'Montserrat', 'Roboto', Arial, sans-serif;
+    }
+    body {
+      font-family: var(--font);
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #171e49, #27bfcf, #232965, #ebeffa);
+      background-size: 400% 400%;
+      animation: gradientMove 4s ease infinite;
+      color: var(--light);
+    }
+    @keyframes gradientMove {
+      0%, 100% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem 0 1rem;
+      background: transparent;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .profile-photo-wrap {
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
+    .profile-photo {
+      width: 155px; height: 155px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px var(--shadow);
+      background: none;
+    }
+    .title-and-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .title {
+      font-family: var(--highlight-font);
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, var(--accent), #ebeffa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .tag {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin: 0.5rem 0 1rem 0;
+      font-family: var(--highlight-font);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .contact-info {
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      background: rgba(27,37,89,0.4);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+    nav {
+      margin-top: 1.5rem;
+      display: flex; gap: 1.5rem; justify-content: flex-start;
+    }
+    nav a {
+      color: var(--accent); text-decoration: none;
+      font-weight: 700; font-size: 1.08rem;
+      font-family: var(--highlight-font);
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+    nav a:hover {
+      color: #fff;
+      border-bottom: 2px solid var(--accent);
+    }
+    section {
+      max-width: 960px; margin: 2rem auto; padding: 1rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-family: var(--highlight-font);
+      font-weight: 700;
+      background: linear-gradient(90deg, #27bfcf, #ebeffa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      text-shadow: 0 2px 8px var(--shadow);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .bio, .skills, .achievement, .certification, .contact {
+      background: #232965;
+      border-radius: var(--card-radius);
+      box-shadow: 0 2px 11px var(--shadow);
+      padding: 1.3rem 1.5rem; margin-bottom: 2rem;
+      font-family: var(--font);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .skills-list {
+      display: flex; flex-wrap: wrap; gap: 1.2rem;
+      margin: 1rem 0;
+    }
+    .skill {
+      background: var(--light);
+      color: var(--primary);
+      border-radius: 14px;
+      padding: 0.5rem 1rem;
+      box-shadow: 0 1px 6px var(--shadow);
+      font-family: var(--highlight-font);
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+    .projects {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .card {
+      background: #2b3374;
+      border-radius: var(--card-radius);
+      box-shadow: 0 2px 16px var(--shadow);
+      padding: 1.1rem 1rem;
+      transition: transform 0.12s, box-shadow 0.12s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.025);
+      box-shadow: 0 8px 28px var(--accent);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: var(--highlight-font);
+      letter-spacing: 0.05em;
+      margin: 0.4rem 0;
+      text-transform: uppercase;
+      text-shadow: 0 2px 7px var(--shadow);
+    }
+    .card-desc {
+      font-size: 1.08rem;
+      margin: 0.7rem 0;
+      color: #b9e3f9;
+      font-family: var(--font);
+    }
+    .card-tech {
+      font-size: 1.00rem;
+      color: #a9b7e3;
+      font-family: var(--highlight-font);
+      font-weight: 500;
+    }
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+      .profile-photo-wrap {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+      .title-and-info {
+        align-items: center;
+        text-align: center;
+      }
+      nav {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 700px) {
+      .projects { grid-template-columns: 1fr; }
+      .profile-photo-wrap { width: 110px; height: 110px; }
+      .profile-photo { width: 90px; height: 90px; }
+      .section-title { font-size: 1.33rem; }
+      .bio, .skills, .achievement, .certification, .contact { font-size: 1rem; }
+      .skill { font-size: 0.98rem; }
+      .card-title { font-size: 1rem; }
+    }
+    .contact a {
+      color: var(--accent); text-decoration: none;
+      margin-right: 1rem;
+      font-family: var(--highlight-font);
+      font-weight: 700;
+    }
+    .contact a:hover { color: #fff; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Profile photo at left with little rounded corners -->
+    <div class="profile-photo-wrap">
+      <img class="profile-photo" src="c:\Users\AJAY\OneDrive\Desktop\personal\ajaganna.jpg" alt="Profile photo of Ajaganna">
+    </div>
+    <div class="title-and-info">
+      <div class="title">Ajaganna Pasargi</div>
+      <div class="tag">Aspiring Data Science Engineer | Final Year BE CSE</div>
+      <div class="contact-info">
+        📧 <a href="mailto:pasargiajaganna@gmail.com">pasargiajaganna@gmail.com</a> | ☎️ +91 8073214992 | <a href="https://linkedin.com/in/ajaganna-pasargi-b34864268" target="_blank">LinkedIn</a>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <section id="about">
+    <div class="section-title">About Me</div>
+    <div class="bio">
+      Maths lover, algorithm explorer, and passionate learner seeking to become a data science engineer. I enjoy solving complex problems and collaborating with teams to achieve great results. Currently pursuing a BE in Computer Science at SJCIT, with hands-on project experience and a knack for creative solutions.
+    </div>
+  </section>
+  <section id="skills">
+    <div class="section-title">Skills</div>
+    <div class="skills">
+      <div class="skills-list">
+        <div class="skill">Java (Proficient)</div>
+        <div class="skill">Python (Intermediate)</div>
+        <div class="skill">C with DSA (Intermediate)</div>
+        <div class="skill">HTML & CSS (Proficient)</div>
+        <div class="skill">SQL (Basic)</div>
+        <div class="skill">LaTeX (Basic)</div>
+        <div class="skill">Algorithms</div>
+        <div class="skill">Deep Learning</div>
+        <div class="skill">Full Stack Development</div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="section-title">Projects</div>
+    <div class="projects">
+      <div class="card">
+        <div class="card-title">Low Light Image Enhancement with Deep Learning</div>
+        <div class="card-desc">Developed a selective image enhancement pipeline using deep neural networks to boost visibility and preserve detail in low-light scenarios.</div>
+        <div class="card-tech">Tech: Python, Keras, OpenCV, Deep Learning</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Student Record Management System</div>
+        <div class="card-desc">CRUD desktop application with Java Swing and MySQL, supporting student profiles, grades, and admin panel.</div>
+        <div class="card-tech">Tech: Java, SQL, Swing</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Heera AI Desktop Assistant</div>
+        <div class="card-desc">Voice-controlled automation for routine tasks with Python, speech recognition, and automation libraries.</div>
+        <div class="card-tech">Tech: Python, SpeechRecognition, pyttsx3</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Sudoku Solver</div>
+        <div class="card-desc">Puzzle solver using backtracking algorithms for efficient solution discovery.</div>
+        <div class="card-tech">Tech: Python, Algorithms</div>
+      </div>
+    </div>
+  </section>
+  <section id="achievements">
+    <div class="section-title">Achievements</div>
+    <div class="achievement">
+      - 2nd Place, VTU State-Level Theatre, Global Academy, Bengaluru (Mar 2025)<br>
+      - 1st Place, SJCIT College Theatre Fest (June 2024)<br>
+    </div>
+  </section>
+  <section id="certifications">
+    <div class="section-title">Course Certifications</div>
+    <div class="certification">
+      - Full Stack Development (Udemy)<br>
+      - Python Essentials (CISCO Networking Academy)<br>
+      - Cisco Packet Tracer (CISCO Networking Academy)<br>
+      - Networking with Cisco Packet Tracer (CISCO Networking Academy)<br>
+      - Generative AI Introduction and Applications (IBM)<br>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="section-title">Contact & Connect</div>
+    <div class="contact">
+      Email: pasargiajaganna@gmail.com<br>
+      Phone: +91 8073214992<br>
+      LinkedIn: <a href="https://linkedin.com/in/ajaganna-pasargi-b34864268" target="_blank">ajaganna-pasargi-b34864268</a><br>
+    </div>
+  </section>
+</body>
+</html>
